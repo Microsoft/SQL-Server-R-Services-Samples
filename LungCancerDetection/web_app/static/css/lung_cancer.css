@@ -1,0 +1,246 @@
+﻿/* Initial styles*/
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0px;
+  padding: 0px;
+  border: 0px none;
+  font-size: 100%;
+  vertical-align: baseline;
+  background-color: #f2f2f2;
+
+}
+body {
+  font: 14px/21px "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  	  background-color: #f2f2f2;
+
+}
+
+/*login page*/
+.Login {
+  background-color: #f2f2f2;
+  width: 1440px;
+  height: 1024px;
+  margin: 0px auto;
+}
+.Login-doc{
+	width: 100%;
+	height: 1000px;
+	background-color: #f2f2f2;
+	background-image: url(../img/login_image_ext.png);
+	  position: absolute;
+  background-repeat: no-repeat;
+
+}
+.Bitmap {
+  float: left;
+  width: 738px;
+  height: 1024px;
+}
+#Search-patient{
+	width: 1180px;
+	margin-left:740px; 	
+	text-align: center;
+}
+.Shape {
+  margin: 0px auto;
+  padding:50px 20px 0px;
+}
+.Contoso-Cancer-Found {
+  margin: 20px auto;
+  height: 30px;
+  font-family: CircularStd;
+  font-size: 30px;
+  font-weight: 900;
+  color: #000000;
+}
+.Logged-in-as-Dr-John {
+	  margin: 20px auto;
+  width: 258px;
+  height: 23px;
+  font-family: CircularStd-Book;
+  font-size: 18px;
+  color: #000000;
+}
+
+.text-style-1 {
+  color: #17ad62;
+}
+.text-style-1 a{
+   text-decoration: none;
+   color: #17ad62;
+}
+
+.Rectangle {
+  margin: 10px auto;
+  width: 575.8px;
+  height: 50px;
+  background-color: #ffffff;
+  box-shadow: 0 5px 40px 0 rgba(0, 0, 0, 0.1);
+
+}
+.Search-patient-by-na {
+  float: left;
+  width: 482.9px;
+  height: 27px;
+  font-family: CircularStd-Book;
+  font-size: 21px;
+  color: #c0c0c0;
+  margin: 20px 20px 0px;
+  border: none;
+}
+
+.Rectangle-188 {
+  width: 72px;
+  height: 72px;
+  background-color: #02b875;
+}
+.Page-1 {
+  width: 36px;
+  height: 36px;
+  background-color: #ffffff;
+}
+
+.search-patient-form{
+	margin: 10px auto;
+	height: 100px;
+
+}
+
+input.navigation-bar-search-input{
+background-color: rgba(255, 255, 255, 0.9);
+margin-top: 5px;
+margin-bottom: 5px;
+padding-bottom: 5px;
+border: none;
+float: left;
+padding-top: 10px;
+margin-left: 15px;
+font-size:18px;
+}
+button.navigation-bar-search-icon{
+  background-image: url("../img/icon_search.png");
+  background-position: right top;
+  background-repeat: no-repeat;
+  border:none;
+  background-color:inherit;
+  cursor:pointer;
+width: 30px;
+height: 30px;
+margin-top: 10px;
+float: right;
+margin-right: 10px;
+}
+
+
+.wrapper{
+	width: 1500px;
+	margin: 0px auto;
+}
+
+.patient-name{
+	margin:30px 10px 0px;
+	float: left;
+}
+
+.patient-history{
+	margin:30px 10px 50px;
+	float:left;
+}
+
+.patient-scan{
+  margin-left: 950px;
+  margin-top: 30px;
+  width: 450px;
+  height: 650px;
+  position: absolute;
+  border-radius: 5px;
+  background-color: #010101;
+  box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.04);
+  border: solid 1px #f2f2f2;
+}
+
+.scan-info{
+	font-size: 19px;
+  letter-spacing: -0.1px;
+  color: #ffffff;
+  text-align: center;
+  margin-top: 10px;
+}
+.scan-info p{
+  background-color: #010101;
+}
+.gif{
+	margin-top: 100px;
+	padding-left: 80px;
+background-color: black;
+border:none;
+}
+
+.analyze-button{
+margin-left: 950px;
+margin-top: 720px;
+width: 450px;
+height: 115px;
+position: absolute;
+border-radius: 5px;
+  background-color: #25d060;
+  box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.08);
+
+}
+
+.analyze-button-scan{
+	background-color: #25d060;
+	border:none;
+	margin-top: 30px;
+	font-size: 36px;
+	text-align: center;
+	color: #ffffff;
+	cursor:pointer;
+	height: 60px;
+	width:100%;
+
+}
+
+.cancer-result{
+width: 450px;
+height: 140px;
+margin-top: 80px;
+background-color: #ff9600;
+  text-align: center;
+border-radius: 5px;
+  box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.08);
+position: absolute;
+
+}
+
+.cancer-result-sign{
+width: 32px;
+  height: 32px;
+background-color: #ff9600;
+  background-image: url("../img/warning_icon.png");
+  background-position: right top;
+  background-repeat: no-repeat;
+  border:none;
+  padding-left: 220px;
+margin: 10px 0px;
+
+}
+.cancer-result-text{
+		font-size: 19px;
+background-color: #ff9600;
+	color: #ffffff;
+}
+.cancer-result-text b{
+	background-color: #ff9600;
+
+}
+.top-banner{
+  height: 100px;
+  width: 100%
+}
+.banner-logo-icon{
+  background-image: url("../img/warning_icon.png");
+
+}
+.banner-logo-text{
+  font-size: 21px;
+}

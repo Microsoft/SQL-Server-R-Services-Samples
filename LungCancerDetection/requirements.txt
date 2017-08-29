@@ -1,0 +1,9 @@
+flask>=0.11.1
+glob2==0.5
+pydicom==0.9.9
+pyodbc==4.0.16
+cherrypy==10.2.1
+paste==2.0.3
+numpy>=1.11.1
+scikit-learn>=0.17.1
+wget==3.2

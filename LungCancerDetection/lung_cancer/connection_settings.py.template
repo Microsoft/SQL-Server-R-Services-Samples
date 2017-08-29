@@ -1,0 +1,36 @@
+# Server constants
+DB_DRIVER = 'ODBC Driver 13 for SQL Server'
+SERVER_NAME = 'localhost'
+PORT_NUMBER = '1443'
+DATABASE_NAME = 'lung_cancer_database'
+
+# Path to images
+IMAGES_FOLDER = '\\\\[COMPUTER-NAME]\\[SQLServerInstance]\\FileTableData\\MriData'
+
+#Tables
+TABLE_PATIENTS = 'dbo.patients'
+TABLE_LABELS = 'dbo.labels'
+TABLE_SCAN_IMAGES = 'dbo.MriData'
+TABLE_SLICE_FEATURES = 'dbo.slice_features'
+TABLE_FEATURES = 'dbo.features'
+TABLE_TRAIN_ID = 'dbo.train_id'
+TABLE_CLASSIFIERS = 'dbo.classifiers'
+TABLE_PREDICTIONS = 'dbo.predictions'
+TABLE_GIF = 'dbo.gif_url'
+
+#Functions
+def get_connection_string():
+	driver = 'DRIVER={' + DB_DRIVER + '}'
+	port = 'PORT=' + PORT_NUMBER
+	server = 'SERVER=' + SERVER_NAME
+	database = 'DATABASE=' + DATABASE_NAME
+	trusted = 'Trusted_Connection=Yes'
+	connection_string = ';'.join([driver,server,port,database,trusted])
+	print(connection_string)
+	return connection_string
+
+# Variables
+NUMBER_PATIENTS = 200 #1595
+MICROSOFTML_MODEL_NAME = "Resnet18"
+FASTTREE_MODEL_NAME = "rx_fast_trees"
+

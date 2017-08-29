@@ -1,0 +1,81 @@
+<!DOCTYPE HTML>
+<html lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/lung_cancer.css') }}" type="text/css" />
+
+ </head>
+ <body>
+
+<div class="wrapper">
+
+<!--	<div class="top-banner"
+	</div>-->
+	<div class="patient-name">
+		{% if patient_index < 150 %}
+		<img src="{{ url_for('static', filename='img/patient_name.jpg') }}" />
+		{% else %}
+		<img src="{{ url_for('static', filename='img/patient_name2.jpg') }}" />
+		{% endif %}
+	</div>
+	<div class="patient-history">
+		<img src="{{ url_for('static', filename='img/patient_history2.jpg') }}" />
+	</div>
+	<div class="patient-scan">
+		<div class="scan-info">
+			<p>Showing scan results of patient</p>
+		</div>
+
+		{% if gif_url %}
+		<div class="gif">
+			<img src="{{gif_url}}" width="300px" />
+		</div>
+		{% else %}
+		<div class="gif">
+			<img src="https://migonzastorage.blob.core.windows.net/projects/data_science_bowl_2017/gif/0015ceb851d7251b8f399e39779d1e7d.gif" width="300px" />
+		</div>
+		{% endif %}
+
+		{% if prob %}
+			{% if prob < 20 %}
+			<div class="cancer-result" style="background-color: #25d060;">
+	  			<div class="cancer-result-sign"  style="background-color: #25d060;"></div>
+	  			<div class="cancer-result-text" style="background-color: #25d060;">
+	  			Prediction: <b style="background-color: #25d060;">{{prob}}% </b>
+	  			 <br> probability of cancer
+	  			</div>
+	  		</div>
+	  		{% elif prob >= 20 and prob < 40  %}
+			<div class="cancer-result" style="background-color: #d4e028;">
+	  			<div class="cancer-result-sign"  style="background-color: #d4e028;"></div>
+	  			<div class="cancer-result-text" style="background-color: #d4e028;">
+	  			Prediction: <b style="background-color: #d4e028;">{{prob}}% </b>
+	  			 <br> probability of cancer
+	  			</div>
+	  		</div>
+	  		{% elif prob >= 40 %}
+			<div class="cancer-result" style="background-color: #e93c00;">
+	  			<div class="cancer-result-sign"  style="background-color: #e93c00;"></div>
+	  			<div class="cancer-result-text" style="background-color: #e93c00;">
+	  			Prediction: <b style="background-color: #e93c00;">{{prob}}% </b>
+	  			 <br> probability of cancer
+	  			</div>
+	  		</div>
+
+			{% endif %}
+		{% endif %}
+
+	</div><!-- class="patient-scan" -->
+	<form action="/patient_prob" method="POST" class="analyze-button">
+      <button type="submit" class="analyze-button-scan">Analyze Scan</button>
+      <input type="hidden" name="patient_index" value={{patient_index}} />
+	</form>
+</div> <!-- class="wrapper" -->
+
+
+
+
+
+
+ </body>
+</html>

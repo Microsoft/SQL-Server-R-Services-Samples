@@ -1,0 +1,40 @@
+﻿<!DOCTYPE HTML>
+<html lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/lung_cancer.css') }}" type="text/css" />
+   
+ </head>
+ <body>
+ 
+ <div class="Login-doc">
+
+
+	<div id="Search-patient">
+		<div class="Shape">
+			<img src="{{ url_for('static', filename='img/lung_icon_gray_bg2.jpg') }}" height="300px" />
+
+		</div>
+		<div class="Contoso-Cancer-Found">
+		<p>Contoso Cancer Foundation</p>
+		</div>
+		<div class="Logged-in-as-Dr-John">
+		<p>Logged in as Dr. John T <span class="text-style-1"> <a href=""> - Change</a> </span></p>
+		</div>
+	<div class="search-patient-form">
+	<form action="/patient_info" method="POST" class="Rectangle">
+      <input class="navigation-bar-search-input" type="text" placeholder="Search patient by ID..." name="patient_index">
+      <button type="submit" class="navigation-bar-search-icon"></button>
+	</form>
+	</div><!-- class="search-patient"-->	
+
+
+ </div>
+ 
+ 
+ 
+
+
+
+ </body>
+</html>
