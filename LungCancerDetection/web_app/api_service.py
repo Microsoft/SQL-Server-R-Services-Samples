@@ -1,8 +1,8 @@
 from api import app, BAD_PARAM, STATUS_OK, BAD_REQUEST
 from flask import request, jsonify, abort, make_response, render_template
 import sys
-from lung_cancer.connection_settings_microsoftml import get_connection_string, TABLE_GIF, TABLE_CLASSIFIERS, FASTTREE_MODEL_NAME, DATABASE_NAME, NUMBER_PATIENTS, TABLE_PCA_FEATURES, TABLE_PATIENTS
-from lung_cancer.lung_cancer_utils_microsoftml import get_patient_id_from_index, select_entry_where_column_equals_value, retrieve_model
+from lung_cancer.connection_settings import get_connection_string, TABLE_GIF, TABLE_CLASSIFIERS, FASTTREE_MODEL_NAME, DATABASE_NAME, NUMBER_PATIENTS, TABLE_FEATURES, TABLE_PATIENTS
+from lung_cancer.lung_cancer_utils import get_patient_id_from_index, select_entry_where_column_equals_value, retrieve_model
 import pyodbc
 import cherrypy
 from microsoftml import rx_predict as ml_predict
@@ -118,7 +118,7 @@ def manage_gif(patient_index):
 
 def manage_prediction(patient_index):
     query = "SELECT TOP(1) * FROM {} AS t1 INNER JOIN {} AS t2 ON t1.patient_id = t2.patient_id WHERE t2.idx = {}".format(
-        TABLE_PCA_FEATURES, TABLE_PATIENTS, patient_index)
+        TABLE_FEATURES, TABLE_PATIENTS, patient_index)
     patient_sql = RxSqlServerData(sql_query=query, connection_string=connection_string)
     predictions = ml_predict(model, data=patient_sql, extra_vars_to_write=["label", "patient_id"])
     prob = float(predictions["Probability"].iloc[0])*100
@@ -131,7 +131,7 @@ def manage_prediction_store_procedure(patient_index):
     query = "SET NOCOUNT ON; DECLARE @PredictionResultSP FLOAT; "
     query += "EXECUTE {}.dbo.PredictLungCancer @PatientIndex = {}, @ModelName = \"{}\", @PredictionResult = @PredictionResultSP;".format(DATABASE_NAME, patient_index, FASTTREE_MODEL_NAME)
     cur.execute(query)
-    prob = cur.fetchone()[0] * 100
+    prob = cur.fetchone()[0]
     conn.close()
     print("Probability: ", prob)
     return prob
