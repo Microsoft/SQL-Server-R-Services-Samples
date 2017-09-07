@@ -28,14 +28,14 @@ You need to change the user and password in SQL Server. For that you have to exe
 The next step is to install several libraries that we need to run the demo. First you need to install OpenCV:
 
 	cd "C:\Program Files\Microsoft SQL Server\YOUR-MSSQL-SERVER-INSTANCE-FOLDER\PYTHON_SERVICES\Scripts"
-	conda.exe install -c https://conda.binstar.org/conda-forge opencv -y
+	conda.exe install -c http://conda.binstar.org/conda-forge opencv -y
 
-Finally, you need to install the libraries available in the `requirements.txt`. For that you have execute SQL `pip` inside the directory where you downloaded this repo. So, in a terminal write:
+Finally, you need to install the libraries available in the [requirements.txt](./requirements.txt). For that you have execute SQL `pip` inside the directory where you downloaded this repo. So, in a terminal write:
 
 	"C:\Program Files\Microsoft SQL Server\YOUR-MSSQL-SERVER-INSTANCE-FOLDER\PYTHON_SERVICES\Scripts\pip.exe" install -r requirements.txt
 
 #### Install lung cancer detection libraries
-The last step is to install the lung cancer libraries. You have to go to the folder where you downloaded the libraries and fill up the file [connection_settings.py](lung_cancer/connection_settings.py.template) with your credentials. Another way to add the credentials is using environmnet variables. In this case we use a file embedded in the library because it's easier with the SQL python system. Once the credentials are changed, execute from there:
+The last step is to install the lung cancer libraries. You have to go to the folder where you downloaded the libraries and fill up the file [connection_settings.py](lung_cancer/connection_settings.py.template) with your credentials. Another way to add the credentials is using environment variables. In this case we use a file embedded in the library because it's easier with the SQL python system. Once the credentials are changed, execute from there:
 
 	cd PATH-TO-SQL-PYTHON-DEEP-LEARNING-REPO
 	"C:\Program Files\Microsoft SQL Server\YOUR-MSSQL-SERVER-INSTANCE-FOLDER\PYTHON_SERVICES\python.exe" setup.py install
