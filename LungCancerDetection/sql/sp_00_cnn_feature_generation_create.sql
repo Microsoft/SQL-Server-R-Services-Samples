@@ -19,7 +19,7 @@ BEGIN
 	-- interfering with SELECT statements.
 	SET NOCOUNT ON;
 
-	DECLARE @root nvarchar(1000) = FileTableRootPath(); 
+	DECLARE @root nvarchar(max) = FileTableRootPath(); 
 
 	DECLARE @batchPatientImages nvarchar(max)
 	SET @batchPatientImages = 
@@ -27,6 +27,7 @@ BEGIN
 			FROM [MriData] WHERE [is_directory] = 0';
 
     -- Insert statements for procedure here
+
 	EXECUTE sp_execute_external_script
       @language = N'Python'
     , @script = N'
@@ -40,6 +41,7 @@ data = InputDataSet
 data["patient_id"] = data["image"].map(lambda x: os.path.basename(os.path.dirname(x)))
 
 rx_set_compute_context(sql)
+# Note: SQLRUserGroup needs db_reader permissions in order to access the filetable here. This may be a security risk.
 compute_features(data, output_table=TABLE_SLICE_FEATURES, connection_string=connection_string)
 rx_set_compute_context(local)
 

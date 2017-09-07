@@ -33,7 +33,7 @@ connection_string = get_connection_string()
 sql = RxInSqlServer(connection_string = connection_string)
 #rx_set_compute_context(sql)
 
-query = "SELECT TOP(1) * FROM {} AS t1 INNER JOIN {} AS t2 ON t1.patient_id = t2.patient_id WHERE t2.idx = {}".format(TABLE_FEATURES, TABLE_PATIENTS, PatientIndex)
+query = "SELECT * FROM {} AS t1 INNER JOIN {} AS t2 ON t1.patient_id = t2.patient_id WHERE t2.idx = {}".format(TABLE_FEATURES, TABLE_PATIENTS, PatientIndex)
 patient_sql = RxSqlServerData(sql_query=query, connection_string=connection_string)
 
 # Get classifier
